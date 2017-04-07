@@ -1,0 +1,44 @@
+<html ng-app="CatalogApp">
+    <head>
+        <title>Catalog App</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+        <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="table.css" />
+    </head>
+
+    <body>
+
+        <script>
+            var app = angular.module('CatalogApp', ['ui.bootstrap']);
+
+            function loadCourses ($scope, $http){
+                $http({
+                     method : 'GET',
+                     url : 'localhost:8080/courseDb'
+                    }).then(function (response) {
+                         $scope.courses = response.data;
+                         $scope.test = "hi";
+                });
+            }
+
+            app.controller('CatalogCtrl',
+                           function ($scope, $http){
+                               loadCourses($scope, $http);
+                           });
+        </script>
+
+        <div ng-controller="CatalogCtrl">
+            <h3>Courses: {{test}}</h3>
+            <table>
+                <tr>
+                    <td colspan=1>&nbsp;</td>
+                </tr>
+                <tr ng-repeat="c in courses">
+                    <td>{{c.number}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

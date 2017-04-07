@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by Lauren on 4/6/2017.
+ * Created by Lauren on 4/7/2017.
  */
 @Controller // so framework can recognize this as a controller class
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/catalogApp")
+public class CourseCatalogController {
 
     @GetMapping
-    public String flowchart() { return "flowchart.html"; }
+    public String catalog() { return "catalog.html"; }
 }
