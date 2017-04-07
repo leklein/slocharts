@@ -16,7 +16,7 @@
             function loadCourses ($scope, $http){
                 $http({
                      method : 'GET',
-                     url : 'localhost:8080/courseDb'
+                     url : 'slocharts.herokuapp.com/courseDb'
                     }).then(function (response) {
                          $scope.courses = response.data;
                          $scope.test = "hi";
