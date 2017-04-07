@@ -20,17 +20,19 @@ public class Course implements Serializable {
     private String prefix;
     private String number;
     private String title;
+    private EducationArea educationArea;
 
     public Course (){};
 
-    public Course(String prefix, String number, String title) {
+    public Course(String prefix, String number, String title, String educationArea) {
         this.prefix = prefix;
         this.number = number;
         this.title = title;
+        this.setEducationArea(educationArea);
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -38,7 +40,7 @@ public class Course implements Serializable {
     }
 
     public String getPrefix() {
-        return prefix;
+        return this.prefix;
     }
 
     public void setPrefix(String prefix) {
@@ -46,7 +48,7 @@ public class Course implements Serializable {
     }
 
     public String getNumber() {
-        return number;
+        return this.number;
     }
 
     public void setNumber(String number) {
@@ -54,10 +56,32 @@ public class Course implements Serializable {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getEducationArea() {
+        if (this.educationArea.equals(EducationArea.MAJOR))
+            return "MAJOR";
+        else if (this.educationArea.equals(EducationArea.SUPPORT))
+            return "SUPPORT";
+        else if (this.educationArea.equals(EducationArea.GE))
+            return "GE";
+        else
+            return "NONE";
+    }
+
+    public void setEducationArea(String educationArea) {
+        if (educationArea.equals("MAJOR"))
+            this.educationArea = EducationArea.MAJOR;
+        else if (educationArea.equals("SUPPORT"))
+            this.educationArea = EducationArea.SUPPORT;
+        else if (educationArea.equals("GE"))
+            this.educationArea = EducationArea.GE;
+        else
+            this.educationArea = EducationArea.NONE;
     }
 }
