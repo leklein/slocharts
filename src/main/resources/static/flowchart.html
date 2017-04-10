@@ -83,8 +83,7 @@
             <div ng-controller="CatalogCtrl">
                 <table class="catalogTable">
                     <tr ng-repeat="c in courses">
-                        <td>
-                            <span class="class-title">{{c.title}}</span><br><br>
+                        <td class="{{c.educationArea}}">
                             <span class="class-number">{{c.prefix}} {{c.number}}</span>
                         </td>
                     </tr>
